@@ -20,4 +20,4 @@ st.write(romajify(text, 'hepburn'))
 
 st.write(romajify(text, 'kunrei'))
 
-st.markdown('<div><a style="width: 200px;margin: 0 auto; display: block" href="https://cotonoha.io"><img src="cotonoha.png" /></a></div>', unsafe_allow_html=True)
+st.markdown('<div><a style="width: 200px;margin: 0 auto; display: block" href="https://cotonoha.io"><img src="https://cotonoha.io/cotonoha.png" /></a></div>', unsafe_allow_html=True)
