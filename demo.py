@@ -1,23 +1,28 @@
 import streamlit as st
 from cutlet import Cutlet
+import pysbd 
 
-def romajify(text, system="hepburn"):
+senter = pysbd.Segmenter(language="ja", clean=False)
+
+def romajify(sents, system="hepburn"):
     katsu = Cutlet(system)
-    return katsu.romaji(text)
+    return ' '.join([katsu.romaji(text) for text in sents])
 
-st.beta_set_page_config("cutlet ローマ字変換ツール", 'https://cotonoha.io/android-icon-144x144.png')
+st.set_page_config("cutlet ローマ字変換ツール", 'https://cotonoha.io/android-icon-144x144.png')
 
 st.title("cutlet ローマ字変換")
 
 text = st.text_area('変換したいテキストを入力してください', 
         "吾輩は猫である。名前はまだ無い。")
 
+sents = senter.segment(text)
+
 "### ヘボン式"
 
-st.write(romajify(text, 'hepburn'))
+st.write(romajify(sents, 'hepburn'))
 
 "### 訓令式"
 
-st.write(romajify(text, 'kunrei'))
+st.write(romajify(sents, 'kunrei'))
 
 st.markdown('<div><a style="width: 200px;margin: 0 auto; display: block" href="https://cotonoha.io"><img src="https://cotonoha.io/cotonoha.png" /></a></div>', unsafe_allow_html=True)
