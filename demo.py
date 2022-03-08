@@ -34,6 +34,9 @@ system = systems[system]
 
 "# 変換結果"
 
-st.write(romajify(text 1 \n text 2 \n text 3, system))
+st.write(romajify(text, system))
+st.write(romajify(text, system))
+st.write(romajify(text, system))
+
 
 st.markdown('<div><a style="width: 200px;margin: 0 auto; display: block" href="https://cotonoha.io"><img src="https://cotonoha.io/cotonoha.png" /></a></div>', unsafe_allow_html=True)
