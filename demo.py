@@ -1,6 +1,7 @@
 import streamlit as st
 from cutlet import Cutlet
 import pysbd 
+import streamlit as st
 
 senter = pysbd.Segmenter(language="ja", clean=False)
 ZKS = "　" # full width space
@@ -16,6 +17,10 @@ def romajify(text, system="hepburn"):
         out += " \n"
 
     return out
+
+help_input='''This is the line1\n
+This is the line 2\n
+This is the line 3'''
 
 st.set_page_config("cutlet ローマ字変換ツール", 'https://cotonoha.io/android-icon-144x144.png')
 
@@ -34,6 +39,6 @@ system = systems[system]
 
 "# 変換結果"
 
-st.write(romajify(text, system))
+st.write(romajify(text, system)help=help_input)
 
 st.markdown('<div><a style="width: 200px;margin: 0 auto; display: block" href="https://cotonoha.io"><img src="https://cotonoha.io/cotonoha.png" /></a></div>', unsafe_allow_html=True)
