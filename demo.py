@@ -13,7 +13,7 @@ def romajify(text, system="hepburn"):
             for sent in senter.segment(chunk):
                 out += katsu.romaji(sent) + " "
             out += ZKS
-        out += "\n"
+        out += " \n"
 
     return out
 
@@ -35,8 +35,5 @@ system = systems[system]
 "# 変換結果"
 
 st.write(romajify(text, system))
-st.write(romajify(text, system))
-st.write(romajify(text, system))
-
 
 st.markdown('<div><a style="width: 200px;margin: 0 auto; display: block" href="https://cotonoha.io"><img src="https://cotonoha.io/cotonoha.png" /></a></div>', unsafe_allow_html=True)
