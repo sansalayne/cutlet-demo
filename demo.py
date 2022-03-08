@@ -5,11 +5,11 @@ import pysbd
 senter = pysbd.Segmenter(language="ja", clean=False)
 ZKS = "　" # full width space
 
-def romajify(line, system="hepburn"):
+def romajify(text, system="hepburn"):
     out = ""
     katsu = Cutlet(system)
-    for line in text.split("\n"):
-        for chunk in line.split(ZKS):
+    for text in text.split(" \n"):
+        for chunk in text.split(ZKS):
             for sent in senter.segment(chunk):
                 out += katsu.romaji(sent) + " "
             out += ZKS
@@ -34,6 +34,6 @@ system = systems[system]
 
 "# 変換結果"
 
-st.write(romajify(line, system))
+st.write(romajify(text, system))
 
 st.markdown('<div><a style="width: 200px;margin: 0 auto; display: block" href="https://cotonoha.io"><img src="https://cotonoha.io/cotonoha.png" /></a></div>', unsafe_allow_html=True)
