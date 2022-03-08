@@ -5,7 +5,7 @@ import pysbd
 senter = pysbd.Segmenter(language="ja", clean=False)
 ZKS = "　" # full width space
 
-def romajify(text, system="hepburn"):
+def romajify(text.split, system="hepburn"):
     out = ""
     katsu = Cutlet(system)
     for line in text.split("\n"):
