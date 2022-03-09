@@ -12,6 +12,7 @@ def romajify(text, system="hepburn"):
     for text in text.split("\n"):
         for chunk in text.split(ZKS):
             for sent in senter.segment(chunk):
+                text_lower = text.lower()
                 out += katsu.romaji(sent) + " "
             out += ZKS
         out += "\n"
