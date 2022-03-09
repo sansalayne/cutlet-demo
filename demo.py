@@ -4,16 +4,16 @@ import pysbd
 import streamlit as st
 
 senter = pysbd.Segmenter(language="ja", clean=False)
-ZKS = " " # full width space
+ZKS = "" # full width space
 
 def romajify(text, system="hepburn"):
     out = ""
     katsu = Cutlet(system)
     for text in text.split("<br/>"):
-        for chunk in text.split(/n):
+        for chunk in text.split(ZKS):
             for sent in senter.segment(chunk):
                 out += katsu.romaji(sent) + " "
-            out += /n
+            out += ZKS
         out += "<br/>"
 
     return out
