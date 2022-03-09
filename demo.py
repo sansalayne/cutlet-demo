@@ -5,7 +5,6 @@ import streamlit as st
 
 senter = pysbd.Segmenter(language="ja", clean=False)
 ZKS = " " # full width space
-text.lower(true)
 
 def romajify(text, system="hepburn"):
     out = ""
@@ -16,6 +15,7 @@ def romajify(text, system="hepburn"):
                 out += katsu.romaji(sent) + " "
             out += ZKS
         out += "\n"
+text.lower(true)
 
     return out
 
