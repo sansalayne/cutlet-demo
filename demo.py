@@ -14,7 +14,7 @@ def romajify(text, system="hepburn"):
             for sent in senter.segment(chunk):
                 out += katsu.romaji(sent) + " "
             out += ZKS
-        out += " \n"
+        out += "<br/>"
 
     return out
 
