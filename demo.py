@@ -1,12 +1,9 @@
 import streamlit as st
 from cutlet import Cutlet
 import pysbd 
-import streamlit as st
 
 senter = pysbd.Segmenter(language="ja", clean=False)
 ZKS = " " # full width space
-string = 'text'
-print(string.lower())
 
 def romajify(text, system="hepburn"):
     out = ""
@@ -17,7 +14,6 @@ def romajify(text, system="hepburn"):
                 out += katsu.romaji(sent) + " "
             out += ZKS
         out += "\n"
-        out += romajify.lower()
 
     return out
 
