@@ -8,10 +8,10 @@ senter = pysbd.Segmenter(language="ja", clean=False)
 def romajify(text, system="hepburn"):
     out = ""
     katsu = Cutlet(system)
-    for text in text.split("<br/>"):
+    for text in text.split("/n"):
             for sent in senter.segment(chunk):
                 out += katsu.romaji(sent) + " "
-        out += "<br/>"
+        out += "/n"
 
     return out
 
