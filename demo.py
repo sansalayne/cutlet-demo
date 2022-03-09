@@ -6,6 +6,7 @@ import streamlit as st
 senter = pysbd.Segmenter(language="ja", clean=False)
 ZKS = " " # full width space
 string = 'text'
+print(string.lower())
 
 def romajify(text, system="hepburn"):
     out = ""
