@@ -9,7 +9,7 @@ ZKS = "　" # full width space
 def romajify(text, system="hepburn"):
     out = ""
     katsu = Cutlet(system)
-    for text in text.split(" \n"):
+    for text in text.split("<br/>"):
         for chunk in text.split(ZKS):
             for sent in senter.segment(chunk):
                 out += katsu.romaji(sent) + " "
