@@ -17,7 +17,7 @@ def romajify(text, system="hepburn"):
                 out += katsu.romaji(sent) + " "
             out += ZKS
         out += "\n"
-        out += text.lower()
+        out += romajify.lower()
 
     return out
 
