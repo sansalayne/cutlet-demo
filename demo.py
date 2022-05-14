@@ -35,7 +35,14 @@ systems = {"ヘボン式": "hepburn", "訓令式": "kunrei"}
 system = systems[system]
 
 "# 変換結果"
+st.markdown("""
+<style>
+.big-font {
+    text-transform: uppercase;
+}
+</style>
+""", unsafe_allow_html=True)
 
-st.write(romajify(text-transform: uppercase, system))
+st.write(romajify('<p class="big-font">text</p>', system))
 
 st.markdown('<div><a style="width: 200px;margin: 0 auto; display: block" href="https://cotonoha.io"><img src="https://cotonoha.io/cotonoha.png" /></a></div>', unsafe_allow_html=True)
