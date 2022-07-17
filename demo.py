@@ -7,6 +7,7 @@ ZKS = " " # full width space
 
 def romajify(text, system="hepburn"):
     out = ""
+    katsu.use_foreign_spelling = False
     katsu = Cutlet(system)
     for text in text.split("\n"):
         for chunk in text.split(ZKS):
