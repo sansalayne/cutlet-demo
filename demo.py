@@ -9,7 +9,7 @@ def romajify(text, system="hepburn"):
     out = ""
     katsu = Cutlet(system)
     katsu.use_foreign_spelling = False
-    romaji(self, text, capitalize=False, title=False):
+  def romaji(self, text, capitalize=False, title=False):
     for text in text.split("\n"):
         for chunk in text.split(ZKS):
             for sent in senter.segment(chunk):
