@@ -5,11 +5,10 @@ import pysbd
 senter = pysbd.Segmenter(language="ja", clean=False)
 ZKS = " " # full width space
 
-def romajify(text, system="hepburn"):
+def romajify(text, system="hepburn", capitalize=False, title=False):
     out = ""
     katsu = Cutlet(system)
     katsu.use_foreign_spelling = False
-  def romaji(self, text, capitalize=False, title=False):
     for text in text.split("\n"):
         for chunk in text.split(ZKS):
             for sent in senter.segment(chunk):
