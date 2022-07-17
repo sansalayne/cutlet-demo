@@ -5,7 +5,7 @@ import pysbd
 senter = pysbd.Segmenter(language="ja", clean=False)
 ZKS = " " # full width space
 
-def romajify(self, text, system="hepburn", capitalize=False, title=False):
+def romajify(text, capitalize=False, title=False, system="hepburn",):
     out = ""
     katsu = Cutlet(system)
     katsu.use_foreign_spelling = False
