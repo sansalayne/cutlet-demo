@@ -5,7 +5,7 @@ import pysbd
 senter = pysbd.Segmenter(language="ja", clean=False)
 ZKS = " " # full width space
 
-def romajify(text, system="hepburn",):
+def romajify(text, capitalize=False, title=False, system="hepburn",):
     out = ""
     katsu = Cutlet(system)
     katsu.use_foreign_spelling = False
@@ -37,6 +37,6 @@ system = systems[system]
 
 "# 変換結果"
 
-st.write(romajify(text (capitalize=False, title=False), system))
+st.write(romajify(text, system))
 
 st.markdown('<div><a style="width: 200px;margin: 0 auto; display: block" href="https://cotonoha.io"><img src="https://cotonoha.io/cotonoha.png" /></a></div>', unsafe_allow_html=True)
