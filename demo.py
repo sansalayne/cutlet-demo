@@ -15,13 +15,12 @@ def romajify(text, system="hepburn"):
         if len(chunks) > 1:
             out += chunks[0] + "]"
             line = " ".join(chunks[1:])
-        for chunk in line.strip().split(ZKS):
+        for chunk in line.strip("[]").split(ZKS):
             if chunk.startswith("["):
-                out += " " + chunk + ZKS
+                out += chunk + ZKS
             else:
                 for sent in senter.segment(chunk):
                     out += katsu.romaji(sent, capitalize=False, title=False) + " "
-                out += ZKS
         out += "\n"
     return out.strip()
 
