@@ -21,7 +21,7 @@ def romajify(text, system="hepburn"):
         elements = re.findall(pattern, line)
         for timestamp, chunk in elements:
             if timestamp:
-                line_out += timestamp + " "  # Append timestamp directly
+                line_out += timestamp + ""  # Append timestamp directly
             if chunk:
                 segments = senter.segment(chunk)
                 for segment in segments:
