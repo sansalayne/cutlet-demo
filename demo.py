@@ -4,7 +4,6 @@ import pysbd
 import re
 
 senter = pysbd.Segmenter(language="ja", clean=False)
-ZKS = " "  # Espacio de ancho completo para segmentar texto japonés
 
 def romajify(text, system="hepburn"):
     """
@@ -17,7 +16,8 @@ def romajify(text, system="hepburn"):
     # Expresión regular para detectar y preservar timestamps y otros elementos
     pattern = r'(\[[^\]]+\])|([^\[\]]+)'
     
-    for line in text.split("\n"):
+    lines = text.split("\n")
+    for line in lines:
         line_out = []
         elements = re.findall(pattern, line)
         for element in elements:
@@ -33,7 +33,7 @@ def romajify(text, system="hepburn"):
     return "\n".join(out)
 
 # Configuración de la página de Streamlit
-st.set_page_config("cutlet ローマ字変換ツール", 'https://cotonoha.io/android-icon-144x144.png')
+st.set_page_format("cutlet ローマ字変換ツール", 'https://cotonoha.io/android-icon-144x144.png')
 st.title("cutlet ローマ字変換")
 system = st.radio("ローマ字の種類", ("ヘボン式", "訓令式"))
 text = st.text_area('変換したいテキストを入力してください', "吾輩は猫である。名前はまだ無い。")
