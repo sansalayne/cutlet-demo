@@ -9,18 +9,13 @@ def romajify(text, system="hepburn"):
     out = ""
     katsu = Cutlet(system)
     katsu.use_foreign_spelling = False
-    for text in text.split("\n"):
-        for line in text.split("] "):
-            if line.strip().startswith("["):
-                out += line.strip() + "] "
-                continue
-            for chunk in line.split(ZKS):
-                for sent in senter.segment(chunk):
-                    out += katsu.romaji(sent, capitalize=False, title=False) + " "
-                out += ZKS
-            out += " "
-        out += "\n"
-    return out
+    for line in text.split("] ["):
+        for chunk in line.strip("[]").split(ZKS):
+            for sent in senter.segment(chunk):
+                out += katsu.romaji(sent, capitalize=False, title=False) + " "
+            out += ZKS
+        out += " "
+    return out.strip()
 
 st.set_page_config("cutlet ローマ字変換ツール", 'https://cotonoha.io/android-icon-144x144.png')
 
@@ -31,7 +26,7 @@ system = st.radio(
         ("ヘボン式", "訓令式"))
 
 text = st.text_area('変換したいテキストを入力してください', 
-        "[00:21.49]一人 秋の海をみつめて思い出す\n[00:31.49]あの夏の影を探して")
+        "[00:21.49]一人 秋の海をみつめて思い出す] [00:31.49]あの夏の影を探して")
 
 systems = {"ヘボン式": "hepburn", "訓令式": "kunrei"}
 system = systems[system]
